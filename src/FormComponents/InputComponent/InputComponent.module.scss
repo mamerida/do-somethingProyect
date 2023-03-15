@@ -1,0 +1,33 @@
+@use "src/globalStyles";
+
+
+.inputContainer{
+    display: flex;
+    flex-direction: column;
+    margin: 15px 0;
+    .label{
+        font-weight:700;
+        margin: 0 0 5px 0;
+        .isRequire{
+            color:red
+        }
+    }
+    .inputComponent{
+        height: globalStyles.$element-height;
+        border: 1px globalStyles.$place-holder-elements solid ;
+        border-radius: globalStyles.$element-border-radius ;
+        padding: 0 0 0 5px;
+        &::placeholder{
+            color:globalStyles.$place-holder-elements;
+            font-weight: lighter;
+        }
+        &__withError {
+            @extend .inputComponent;
+            border:1px solid red;
+        }
+    }
+    .error{
+        color:red;
+        font-size: 11px;
+    }
+}
