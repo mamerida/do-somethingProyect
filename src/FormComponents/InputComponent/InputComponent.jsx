@@ -4,30 +4,26 @@ import styles from "./InputComponent.module.scss";
 
 const InputComponent = ({ label, ...props }) => {
     const [field, meta] = useField(props);
-    const { required } = props;
+    const { requir } = props;
 
     return (
         <section className={styles.inputContainer}>
             <label className={styles.label}>
                 {label}
-                <span className={styles.isRequire}>{required ? "*" : ""}</span>
+                <span className={styles.isRequire}>{requir ? "*" : ""}</span>
             </label>
+            <input
+                className={
+                    meta.touched && meta.error
+                        ? styles.inputComponent__withError
+                        : styles.inputComponent
+                }
+                {...field}
+                {...props}
+            />
             {meta.touched && meta.error ? (
-                <>
-                    <input
-                        className={styles.inputComponent__withError}
-                        {...field}
-                        {...props}
-                    />
-                    <div className={styles.error}>{meta.error}</div>
-                </>
-            ) : (
-                <input
-                    className={styles.inputComponent}
-                    {...field}
-                    {...props}
-                />
-            )}
+                <div className={styles.error}>{meta.error}</div>
+            ) : null}
         </section>
     );
 };

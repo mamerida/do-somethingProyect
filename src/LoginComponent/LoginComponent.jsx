@@ -3,6 +3,7 @@ import { Form, Formik } from "formik";
 import InputComponent from "../FormComponents/InputComponent/InputComponent";
 import ButtonComponent from "../FormComponents/ButtonComponent/ButtonComponet";
 import styles from "./LoginComponent.module.scss";
+import { schemaLogin } from "./LoginValidations";
 
 const LoginComponent = () => {
     return (
@@ -14,7 +15,7 @@ const LoginComponent = () => {
                         email: "",
                         password: "",
                     }}
-                    validate={(values) => console.log(values)}
+                    validationSchema={schemaLogin}
                     onSubmit={(values) => console.log(values)}
                 >
                     {(formik) => (
@@ -25,16 +26,18 @@ const LoginComponent = () => {
                             <InputComponent
                                 name="email"
                                 label="Email"
-                                required
+                                requir="true"
                                 placeholder="email@email.com"
                             />
                             <InputComponent
                                 name="password"
                                 label="Password"
                                 type="password"
-                                required
+                                requir="true"
                             />
-                            <ButtonComponent>Do Something!</ButtonComponent>
+                            <ButtonComponent type="submit">
+                                Do Something!
+                            </ButtonComponent>
                         </Form>
                     )}
                 </Formik>
