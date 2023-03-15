@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Form, Formik } from "formik";
 import InputComponent from "../FormComponents/InputComponent/InputComponent";
 import ButtonComponent from "../FormComponents/ButtonComponent/ButtonComponet";
 import styles from "./LoginComponent.module.scss";
-import { schemaLogin } from "./LoginValidations";
+import { schemaLogin } from "../fromsValidations";
+import { consultUserLogin } from "../utils/localHost";
 
 const LoginComponent = () => {
     return (
@@ -16,7 +17,7 @@ const LoginComponent = () => {
                         password: "",
                     }}
                     validationSchema={schemaLogin}
-                    onSubmit={(values) => console.log(values)}
+                    onSubmit={(values) => consultUserLogin(values)}
                 >
                     {(formik) => (
                         <Form

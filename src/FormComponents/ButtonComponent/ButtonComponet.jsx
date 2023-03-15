@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import styles from "./ButtonComponet.module.scss";
 
 const ButtonComponent = ({ children, ...props }) => {
