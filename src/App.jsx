@@ -1,8 +1,8 @@
 import "./App.css";
-import LoginComponent from "./LoginComponent/LoginComponent";
+import SingInComponent from "./SingInComponent/SingInComponent";
 
 function App() {
-    return <LoginComponent />;
+    return <SingInComponent />;
 }
 
 export default App;

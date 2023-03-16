@@ -16,9 +16,6 @@ jobs:
                   paths:
                       - ./node_modules
             - run:
-                  name: Build React App
-                  command: npm run build
-            - run:
                   name: Create test reports directory
                   command: mkdir /tmp/test-artifacts
             - run:
