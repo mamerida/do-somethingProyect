@@ -1,43 +1,30 @@
-
 @use "src/globalStyles";
 
-.SingInView{
+.errorContainer{
     display: flex;
     justify-content: center;
     flex-direction: row;
     background-color: globalStyles.$accent-color;
     height: 100%;
-    .formContainer{
+    min-height: 100vh;
+    .errorCard{
         display: flex;
         flex-direction: column;
         justify-content: center;
+        
+        text-align: center;
         background-color: globalStyles.$primary-color;
-        margin: 10vh;
+        margin: 15vh;
         padding: 50px;
         height:max-content;
         width: 50vw;
         max-width: 700px;
         border-radius: globalStyles.$element-border-radius;
         box-shadow: globalStyles.$box-shadow;
-        .titleSingIn{
-            font-size: 5vw;
-            margin: 10px 0;
-            @media screen and (min-width: 1460px) {
-                font-size: 2vw;
-            }
-            text-align: center;   
-        }
-        .loginForm{
-            display: flex;
-            flex-direction: column;
-            justify-content: space-around;
-            height: 60%;
+        .ChrPhoto{
+            height: 350px;
+            width: 350px;
+            align-self: center;
         }
     }
-}
-.error{
-    color:red;
-    font-size: 20px;
-    font-weight: bold;
-    text-align: center;
 }

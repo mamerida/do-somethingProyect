@@ -3,8 +3,9 @@ import { Form, Formik } from "formik";
 import InputComponent from "../FormComponents/InputComponent/InputComponent";
 import ButtonComponent from "../FormComponents/ButtonComponent/ButtonComponet";
 import styles from "./LoginComponent.module.scss";
-import { schemaLogin } from "../fromsValidations";
+import { schemaLogin } from "../utils/fromsValidations";
 import { consultUserLogin } from "../utils/localHost";
+import { Link } from "react-router-dom";
 
 const LoginComponent = () => {
     return (
@@ -42,6 +43,9 @@ const LoginComponent = () => {
                         </Form>
                     )}
                 </Formik>
+                <div className={styles.linkContainer}>
+                    <Link to={"/signin"}>Don't have an account?</Link>
+                </div>
             </section>
         </section>
     );
