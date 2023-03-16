@@ -43,8 +43,8 @@ export const IsUserRegistered = (newUser, usersRegistered) => {
 
 
 export const IsUserLoged = () => {
-    const userLoged = JSON.parse(localStorage.getItem(process.env.REACT_APP_LOCALSTORAGE_LOGED))
-    if (userLoged == {} || !userLoged) {
+    const userLoged = localStorage.getItem(process.env.REACT_APP_LOCALSTORAGE_LOGED)
+    if (!userLoged || userLoged == "{}") {
         return false
     }
     return JSON.parse(localStorage.getItem(process.env.REACT_APP_LOCALSTORAGE_LOGED))

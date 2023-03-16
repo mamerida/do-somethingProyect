@@ -8,6 +8,7 @@ import SignInComponent from "./SignInComponent/SignInComponent";
 import MainComponent from "./MainComponent/MainComponent";
 import Errorpage from "./ErrorPage/ErrorPage";
 import { ProtectedRoute } from "./ProtectionURLComponent/ProtectedRoute";
+import { ProtectedRouteLogin } from "./LoginComponent/ProtectLoginPage";
 
 const router = createBrowserRouter([
   {
@@ -17,7 +18,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/login",
-    element: <LoginComponent />,
+    element: <ProtectedRouteLogin />,
   },
   {
     path: "/signin",
