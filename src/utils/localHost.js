@@ -7,9 +7,24 @@ const createStorare = () => {
 }
 
 export const consultUserLogin = ({ email, password }) => {
-    if (localStorage.getItem(process.env.REACT_APP_LOCALSTORAGE_USERS)) {
+    if (!localStorage.getItem(process.env.REACT_APP_LOCALSTORAGE_USERS)) {
         createStorare()
     }
+
+    let usersInStore = JSON.parse(localStorage.getItem(process.env.REACT_APP_LOCALSTORAGE_USERS))
+    let userRegistered = {}
+    usersInStore.forEach(user => {
+        if (user.email == email) {
+            userRegistered = user
+        }
+    });
+
+    if (userRegistered.password && bcryptjs.compareSync(password, userRegistered.password)) {
+        localStorage.setItem(process.env.REACT_APP_LOCALSTORAGE_LOGED, JSON.stringify(userRegistered))
+        return true
+    }
+    return false
+
 }
 
 export const IsUserRegistered = (newUser, usersRegistered) => {
@@ -17,7 +32,6 @@ export const IsUserRegistered = (newUser, usersRegistered) => {
 
     //Is mail registered?
     usersRegistered.forEach(user => {
-
         if (user.email == newUser.email) {
             isRegistered = true
         }

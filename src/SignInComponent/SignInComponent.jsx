@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Form, Formik } from "formik";
 import InputComponent from "../FormComponents/InputComponent/InputComponent";
 import ButtonComponent from "../FormComponents/ButtonComponent/ButtonComponet";
+import ErrorMessageComponent from "../FormComponents/ErrorMessageComponent/ErrorMessageComponent";
 import styles from "./SignInComponent.module.scss";
 import { schemaSingIn } from "../utils/fromsValidations";
 import { registerUser } from "../utils/localHost";
@@ -85,9 +86,9 @@ const SingInComponent = () => {
                     )}
                 </Formik>
                 {userExist ? (
-                    <div className={styles.error}>
+                    <ErrorMessageComponent>
                         There is already a registered user with this email
-                    </div>
+                    </ErrorMessageComponent>
                 ) : null}
             </section>
         </section>
