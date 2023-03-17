@@ -12,7 +12,7 @@ export const MainPage = () => {
 
     const logOutUser = () => {
         LogOutUser();
-        navigate("/login");
+        navigate("/login", { replace: true });
     };
 
     return (
