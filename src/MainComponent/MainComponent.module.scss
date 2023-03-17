@@ -1,0 +1,38 @@
+@use "src/globalStyles";
+
+.MenuBoard{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    height: max-content;
+    max-height: 5%;
+    white-space: nowrap;
+    @media screen and (width < 470px) {
+        overflow-x: scroll;
+    }
+    background-color:globalStyles.$dark-accent-color;
+    .RouteContainer{
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: center;
+        align-items: center;
+        .option{
+            color:globalStyles.$primary-color;
+            text-decoration: none;
+            overflow-wrap: inherit;
+            font-size:x-large;
+            margin: 15px;
+            cursor: pointer;
+            &__Title {
+                @extend .option;
+                font-size:xx-large;
+                font-weight: bold;
+            }
+        }
+    }
+    .ButtonToMenu{
+        background-color: globalStyles.$primary-text-color;
+        margin: 15px;
+    }
+}
