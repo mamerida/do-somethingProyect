@@ -2,15 +2,28 @@ const bcryptjs = require('bcryptjs')
 
 
 const createStorare = () => {
-    localStorage.setItem(process.env.REACT_APP_NAME_LOCALSTORAGE_OBJECT, JSON.stringify([]))
-    localStorage.setItem(process.env.REACT_APP_NAME_LOCALSTORAGE_PROP, JSON.stringify({}))
+    localStorage.setItem(process.env.REACT_APP_LOCALSTORAGE_USERS, JSON.stringify([]))
+    localStorage.setItem(process.env.REACT_APP_LOCALSTORAGE_LOGED, JSON.stringify({}))
 }
 
 export const consultUserLogin = ({ email, password }) => {
-
-    if (localStorage.getItem(process.env.REACT_APP_NAME_LOCALSTORAGE_OBJECT)) {
+    if (!localStorage.getItem(process.env.REACT_APP_LOCALSTORAGE_USERS)) {
         createStorare()
     }
+
+    let usersInStore = JSON.parse(localStorage.getItem(process.env.REACT_APP_LOCALSTORAGE_USERS))
+    let userRegistered = {}
+    usersInStore.forEach(user => {
+        if (user.email == email) {
+            userRegistered = user
+        }
+    });
+
+    if (userRegistered.password && bcryptjs.compareSync(password, userRegistered.password)) {
+        localStorage.setItem(process.env.REACT_APP_LOCALSTORAGE_LOGED, JSON.stringify(userRegistered))
+        return true
+    }
+    return false
 
 }
 
@@ -19,7 +32,6 @@ export const IsUserRegistered = (newUser, usersRegistered) => {
 
     //Is mail registered?
     usersRegistered.forEach(user => {
-
         if (user.email == newUser.email) {
             isRegistered = true
         }
@@ -29,21 +41,31 @@ export const IsUserRegistered = (newUser, usersRegistered) => {
 
 }
 
+
+export const IsUserLoged = () => {
+    const userLoged = localStorage.getItem(process.env.REACT_APP_LOCALSTORAGE_LOGED)
+    if (!userLoged || userLoged == "{}") {
+        return false
+    }
+    return JSON.parse(localStorage.getItem(process.env.REACT_APP_LOCALSTORAGE_LOGED))
+}
+
+
 export const registerUser = async (newUser, setUserExist) => {
 
     //Store are created ? Pass : create storare
-    if (!localStorage.getItem(process.env.REACT_APP_NAME_LOCALSTORAGE_OBJECT)) {
+    if (!localStorage.getItem(process.env.REACT_APP_LOCALSTORAGE_USERS)) {
         createStorare()
     }
 
-    let usersRegistered = JSON.parse(localStorage.getItem(process.env.REACT_APP_NAME_LOCALSTORAGE_OBJECT))
+    let usersRegistered = JSON.parse(localStorage.getItem(process.env.REACT_APP_LOCALSTORAGE_USERS))
     if (IsUserRegistered(newUser, usersRegistered)) {
         setUserExist(true)
         return
     }
     usersRegistered.push(newUser)
     newUser["password"] = await bcryptjs.hash(newUser.password, Number(process.env.REACT_APP_NUMBER_JUMPS))
-    localStorage.setItem(process.env.REACT_APP_NAME_LOCALSTORAGE_OBJECT, JSON.stringify(usersRegistered))
-    localStorage.setItem(process.env.REACT_APP_NAME_LOCALSTORAGE_PROP, JSON.stringify(newUser)
+    localStorage.setItem(process.env.REACT_APP_LOCALSTORAGE_USERS, JSON.stringify(usersRegistered))
+    localStorage.setItem(process.env.REACT_APP_LOCALSTORAGE_LOGED, JSON.stringify(newUser)
     )
 }

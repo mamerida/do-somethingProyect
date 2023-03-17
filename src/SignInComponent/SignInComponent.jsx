@@ -2,12 +2,23 @@ import React, { useState } from "react";
 import { Form, Formik } from "formik";
 import InputComponent from "../FormComponents/InputComponent/InputComponent";
 import ButtonComponent from "../FormComponents/ButtonComponent/ButtonComponet";
-import styles from "./SingInComponent.module.scss";
+import ErrorMessageComponent from "../FormComponents/ErrorMessageComponent/ErrorMessageComponent";
+import styles from "./SignInComponent.module.scss";
 import { schemaSingIn } from "../utils/fromsValidations";
 import { registerUser } from "../utils/localHost";
+import { useNavigate } from "react-router-dom";
 
 const SingInComponent = () => {
     const [userExist, setUserExist] = useState(null);
+    const navigate = useNavigate();
+
+    const FormikhandleSubmit = (values) => {
+        setUserExist(null);
+        let userToRegister = Object.assign({}, values);
+        delete userToRegister["passwordRepeat"];
+        registerUser(userToRegister, setUserExist);
+        navigate("/login");
+    };
 
     return (
         <section className={styles.SingInView}>
@@ -24,10 +35,7 @@ const SingInComponent = () => {
                     }}
                     validationSchema={schemaSingIn}
                     onSubmit={(values) => {
-                        setUserExist(null);
-                        let userToRegister = Object.assign({}, values);
-                        delete userToRegister["passwordRepeat"];
-                        registerUser(userToRegister, setUserExist);
+                        FormikhandleSubmit(values);
                     }}
                 >
                     {(formik) => (
@@ -78,9 +86,9 @@ const SingInComponent = () => {
                     )}
                 </Formik>
                 {userExist ? (
-                    <div className={styles.error}>
+                    <ErrorMessageComponent>
                         There is already a registered user with this email
-                    </div>
+                    </ErrorMessageComponent>
                 ) : null}
             </section>
         </section>
