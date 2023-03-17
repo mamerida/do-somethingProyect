@@ -8,7 +8,7 @@
     height: max-content;
     max-height: 5%;
     white-space: nowrap;
-    @media screen and (width < 470px) {
+    @media screen and (width < 600px) {
         overflow-x: scroll;
     }
     background-color:globalStyles.$dark-accent-color;
@@ -22,7 +22,7 @@
             text-decoration: none;
             overflow-wrap: inherit;
             font-size:x-large;
-            margin: 15px;
+            margin: 15px 30px;
             cursor: pointer;
             &__Title {
                 @extend .option;

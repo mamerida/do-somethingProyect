@@ -1,9 +1,20 @@
 import React from "react";
+
 import styles from "./MainComponent.module.scss";
+
 import ButtonComponent from "../FormComponents/ButtonComponent/ButtonComponet";
-import { Link } from "react-router-dom";
+import { LogOutUser } from "../utils/localHost";
+
+import { Link, useNavigate } from "react-router-dom";
 
 export const MainPage = () => {
+    const navigate = useNavigate();
+
+    const logOutUser = () => {
+        LogOutUser();
+        navigate("/login");
+    };
+
     return (
         <section className={styles.MenuBoard}>
             <div className={styles.RouteContainer}>
@@ -14,7 +25,10 @@ export const MainPage = () => {
                     Activities to do
                 </Link>
             </div>
-            <ButtonComponent className={styles.ButtonToMenu}>
+            <ButtonComponent
+                onClick={logOutUser}
+                className={styles.ButtonToMenu}
+            >
                 LogOut
             </ButtonComponent>
         </section>

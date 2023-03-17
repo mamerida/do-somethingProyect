@@ -2,8 +2,8 @@ const bcryptjs = require('bcryptjs')
 
 
 const createStorare = () => {
-    localStorage.setItem(process.env.REACT_APP_LOCALSTORAGE_USERS, JSON.stringify([]))
-    localStorage.setItem(process.env.REACT_APP_LOCALSTORAGE_LOGED, JSON.stringify({}))
+    localStorage.setItem(process.env.REACT_APP_LOCALSTORAGE_USERS, JSON.stringify(process.env.REACT_APP_NO_USERS_REGISTERED))
+    localStorage.setItem(process.env.REACT_APP_LOCALSTORAGE_LOGED, JSON.stringify(process.env.REACT_APP_NO_USER_LOGED))
 }
 
 export const consultUserLogin = ({ email, password }) => {
@@ -48,6 +48,10 @@ export const IsUserLoged = () => {
         return false
     }
     return JSON.parse(localStorage.getItem(process.env.REACT_APP_LOCALSTORAGE_LOGED))
+}
+
+export const LogOutUser = () => {
+    localStorage.setItem(process.env.REACT_APP_LOCALSTORAGE_LOGED, process.env.REACT_APP_NO_USER_LOGED)
 }
 
 
