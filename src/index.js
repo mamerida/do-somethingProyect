@@ -14,7 +14,13 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <ProtectedRoute><MainComponent /></ProtectedRoute>,
-    errorElement: <Errorpage />
+    errorElement: <Errorpage />,
+    children: [
+      {
+        path: "activitiesToDo",
+        element: <div style={{ "backgroundColor": "green" }}>test</div>,
+      },
+    ],
   },
   {
     path: "/login",
