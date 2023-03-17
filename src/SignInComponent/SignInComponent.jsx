@@ -17,7 +17,7 @@ const SingInComponent = () => {
         let userToRegister = Object.assign({}, values);
         delete userToRegister["passwordRepeat"];
         registerUser(userToRegister, setUserExist);
-        navigate("/login", { replace: true });
+        navigate("/", { replace: true });
     };
 
     return (
