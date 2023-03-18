@@ -9,11 +9,13 @@ import Errorpage from "./ErrorPage/ErrorPage";
 import { ProtectedRoute } from "./ProtectionURLComponent/ProtectedRoute";
 import { ProtectedRouteLogin } from "./LoginComponent/ProtectLoginPage";
 import HomePageComponent from "./HomePageComponent/HomePageComponent";
+import { Provider } from "react-redux";
+import store from "./app/store";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <ProtectedRoute><MenuComponent /></ProtectedRoute>,
+    element: <ProtectedRoute><Provider store={store} ><MenuComponent /></Provider></ProtectedRoute>,
     errorElement: <Errorpage />,
     children: [
       {

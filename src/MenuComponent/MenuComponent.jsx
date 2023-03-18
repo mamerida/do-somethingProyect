@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback, useEffect } from "react";
 
 import styles from "./MenuComponent.module.scss";
 
@@ -6,16 +6,30 @@ import ButtonComponent from "../FormComponents/ButtonComponent/ButtonComponet";
 import { LogOutUser } from "../utils/localHost";
 
 import { Link, useNavigate, Outlet } from "react-router-dom";
-import { Provider } from "react-redux";
-import store from "../app/store";
+
+import { useDispatch } from "react-redux";
+import { addSomethingToList } from "../reducers/thingsToDoReducer";
 
 const MenuComponent = () => {
     const navigate = useNavigate();
+    const dispatch = useDispatch();
 
     const logOutUser = () => {
         LogOutUser();
         navigate("/login", { replace: true });
     };
+
+    const getActivities = useCallback(() => {
+        fetch(process.env.REACT_APP_API_URL)
+            .then((response) => response.json())
+            .then((data) => {
+                dispatch(addSomethingToList(data));
+            });
+    }, []);
+
+    useEffect(() => {
+        getActivities();
+    }, []);
 
     return (
         <>
@@ -36,9 +50,7 @@ const MenuComponent = () => {
                 </ButtonComponent>
             </section>
             <section>
-                <Provider store={store}>
-                    <Outlet />
-                </Provider>
+                <Outlet />
             </section>
         </>
     );

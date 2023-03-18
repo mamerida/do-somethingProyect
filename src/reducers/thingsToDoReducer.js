@@ -1,8 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    thinksOnScreen: {},
-    somethingList: []
+    thinksOnScreen: null,
+    somethingList: null,
 }
 
 const addSomethingToListRedux = ({ state, action }) => {
@@ -10,11 +10,11 @@ const addSomethingToListRedux = ({ state, action }) => {
 }
 
 const setSomethingToShowRedux = ({ state, action }) => {
-    console.log("adios")
+    state.thinksOnScreen = action.payload
 }
 
 export const DoSomethingSlice = createSlice({
-    name: 'characterList',
+    name: 'somethigs',
     initialState: initialState,
     reducers: {
         setSomethingToShow: (state, action) => {
