@@ -4,11 +4,12 @@ import styles from "./MenuComponent.module.scss";
 
 import ButtonComponent from "../FormComponents/ButtonComponent/ButtonComponet";
 import { LogOutUser } from "../utils/localHost";
+import { callDoSomethingAPi } from "../utils/ApiCommunications";
 
 import { Link, useNavigate, Outlet } from "react-router-dom";
 
 import { useDispatch } from "react-redux";
-import { addSomethingToList } from "../reducers/thingsToDoReducer";
+import { setSomethingToShow } from "../reducers/thingsToDoReducer";
 
 const MenuComponent = () => {
     const navigate = useNavigate();
@@ -20,11 +21,9 @@ const MenuComponent = () => {
     };
 
     const getActivities = useCallback(() => {
-        fetch(process.env.REACT_APP_API_URL)
-            .then((response) => response.json())
-            .then((data) => {
-                dispatch(addSomethingToList(data));
-            });
+        callDoSomethingAPi().then((data) => {
+            dispatch(setSomethingToShow(data));
+        });
     }, []);
 
     useEffect(() => {
@@ -50,7 +49,7 @@ const MenuComponent = () => {
                 </ButtonComponent>
             </section>
             <section>
-                <Outlet />
+                <Outlet getActivities={getActivities} />
             </section>
         </>
     );
