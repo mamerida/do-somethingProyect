@@ -9,7 +9,7 @@ import { Link, useNavigate, Outlet } from "react-router-dom";
 import { Provider } from "react-redux";
 import store from "../app/store";
 
-export const MenuComponent = () => {
+const MenuComponent = () => {
     const navigate = useNavigate();
 
     const logOutUser = () => {

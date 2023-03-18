@@ -1,7 +1,12 @@
 import React from "react";
+import UserDataComponent from "../UserDataComponent/UserDataComponent";
 
 const HomePageComponent = () => {
-    return <div>Soy un COmponentito</div>;
+    return (
+        <>
+            <UserDataComponent />
+        </>
+    );
 };
 
 export default HomePageComponent;
