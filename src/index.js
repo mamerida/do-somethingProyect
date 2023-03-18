@@ -3,19 +3,23 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import reportWebVitals from "./reportWebVitals";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import LoginComponent from "./LoginComponent/LoginComponent";
 import SignInComponent from "./SignInComponent/SignInComponent";
-import MainComponent from "./MainComponent/MainComponent";
+import MenuComponent from "./MenuComponent/MenuComponent";
 import Errorpage from "./ErrorPage/ErrorPage";
 import { ProtectedRoute } from "./ProtectionURLComponent/ProtectedRoute";
 import { ProtectedRouteLogin } from "./LoginComponent/ProtectLoginPage";
+import HomePageComponent from "./HomePageComponent/HomePageComponent";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <ProtectedRoute><MainComponent /></ProtectedRoute>,
+    element: <ProtectedRoute><MenuComponent /></ProtectedRoute>,
     errorElement: <Errorpage />,
     children: [
+      {
+        path: "/",
+        element: <ProtectedRoute><HomePageComponent /></ProtectedRoute>
+      },
       {
         path: "activitiesToDo",
         element: <div style={{ "backgroundColor": "green" }}>test</div>,

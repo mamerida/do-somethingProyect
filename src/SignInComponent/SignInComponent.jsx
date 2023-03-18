@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Form, Formik } from "formik";
 import InputComponent from "../FormComponents/InputComponent/InputComponent";
 import ButtonComponent from "../FormComponents/ButtonComponent/ButtonComponet";
@@ -9,16 +9,24 @@ import { registerUser } from "../utils/localHost";
 import { useNavigate } from "react-router-dom";
 
 const SingInComponent = () => {
-    const [userExist, setUserExist] = useState(null);
+    const [userExist, setUserExist] = useState(1);
     const navigate = useNavigate();
 
-    const FormikhandleSubmit = (values) => {
-        setUserExist(null);
+    const FormikhandleSubmit = async (values) => {
         let userToRegister = Object.assign({}, values);
         delete userToRegister["passwordRepeat"];
-        registerUser(userToRegister, setUserExist);
-        navigate("/login", { replace: true });
+        let areUserRegistered = await registerUser(
+            userToRegister,
+            setUserExist
+        );
+        setUserExist(areUserRegistered);
     };
+
+    useEffect(() => {
+        if (userExist === 0) {
+            navigate("/", { replace: true });
+        }
+    }, [userExist]);
 
     return (
         <section className={styles.SingInView}>
@@ -85,11 +93,11 @@ const SingInComponent = () => {
                         </Form>
                     )}
                 </Formik>
-                {userExist ? (
+                {userExist ? null : (
                     <ErrorMessageComponent>
                         There is already a registered user with this email
                     </ErrorMessageComponent>
-                ) : null}
+                )}
             </section>
         </section>
     );
