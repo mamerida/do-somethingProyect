@@ -8,12 +8,13 @@ import { callDoSomethingAPi } from "../utils/ApiCommunications";
 
 import { Link, useNavigate, Outlet } from "react-router-dom";
 
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setSomethingToShow } from "../reducers/thingsToDoReducer";
 
 const MenuComponent = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
+    const { thinksOnScreen } = useSelector((state) => state.something);
 
     const logOutUser = () => {
         LogOutUser();
@@ -21,9 +22,11 @@ const MenuComponent = () => {
     };
 
     const getActivities = useCallback(() => {
-        callDoSomethingAPi().then((data) => {
-            dispatch(setSomethingToShow(data));
-        });
+        if (thinksOnScreen == null) {
+            callDoSomethingAPi().then((data) => {
+                dispatch(setSomethingToShow(data));
+            });
+        }
     }, []);
 
     useEffect(() => {
