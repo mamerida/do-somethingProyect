@@ -1,0 +1,15 @@
+@use "src/globalStyles";
+
+.cardContainer{
+    background-color:globalStyles.$accent-color;
+    min-height: 100vh;
+    height: 100%;
+    .SomethingsGrid{
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        .ActivityCard{
+            background-color:globalStyles.$primary-color;
+        }
+    }
+}

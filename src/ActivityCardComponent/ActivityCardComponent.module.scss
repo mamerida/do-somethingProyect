@@ -6,11 +6,9 @@
     border-radius: 10px;
     border: 1px solid gray;
     margin: 15px;
+    width: 400px;
+    text-align: center;
     cursor: pointer;
-    &:hover{
-        color:gray;
-        box-shadow: 10px 10px 113px -22px rgba(173,173,173,0.78);
-    }
     @media screen and (max-width: 750px) {
         width: 90%;
     }
