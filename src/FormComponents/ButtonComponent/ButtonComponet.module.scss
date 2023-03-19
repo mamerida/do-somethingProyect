@@ -11,5 +11,8 @@
     color:globalStyles.$primary-color;
     font-size:x-large;
     font-weight: 700;
-
+    &:hover{
+        box-shadow: globalStyles.$box-shadow;
+        background-color: rgb(167, 4, 4);
+    }
 }

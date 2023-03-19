@@ -26,6 +26,10 @@ const setSomethingToShowRedux = ({ state, action }) => {
     state.thinksOnScreen = action.payload
 }
 
+const deleteActivityFromList = ({ state, action }) => {
+    state.somethingList = state.somethingList.filter(activity => activity.key !== action.payload.key)
+}
+
 export const DoSomethingSlice = createSlice({
     name: 'somethigs',
     initialState: initialState,
@@ -36,12 +40,16 @@ export const DoSomethingSlice = createSlice({
         addSomethingToList: (state, action) => {
             addSomethingToListRedux({ state, action })
         },
+        deleteElementFromStorage: (state, action) => {
+            deleteActivityFromList({ state, action })
+        },
         clearStore: (state, action) => {
-            state = initialState;
+            state.somethingList = null
+            state.thinksOnScreen = null
         },
     }
 })
 
-export const { setSomethingToShow, addSomethingToList, clearStore } = DoSomethingSlice.actions
+export const { setSomethingToShow, deleteElementFromStorage, addSomethingToList, clearStore } = DoSomethingSlice.actions
 
 export default DoSomethingSlice.reducer

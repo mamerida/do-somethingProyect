@@ -9,7 +9,7 @@ import { callDoSomethingAPi } from "../utils/ApiCommunications";
 import { Link, useNavigate, Outlet } from "react-router-dom";
 
 import { useDispatch, useSelector } from "react-redux";
-import { setSomethingToShow } from "../reducers/thingsToDoReducer";
+import { setSomethingToShow, clearStore } from "../reducers/thingsToDoReducer";
 
 const MenuComponent = () => {
     const navigate = useNavigate();
@@ -19,6 +19,7 @@ const MenuComponent = () => {
     const logOutUser = () => {
         LogOutUser();
         navigate("/login", { replace: true });
+        dispatch(clearStore());
     };
 
     const getActivities = useCallback(() => {

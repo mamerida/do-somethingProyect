@@ -9,6 +9,7 @@ import Errorpage from "./ErrorPage/ErrorPage";
 import { ProtectedRoute } from "./ProtectionURLComponent/ProtectedRoute";
 import { ProtectedRouteLogin } from "./LoginComponent/ProtectLoginPage";
 import HomePageComponent from "./HomePageComponent/HomePageComponent";
+import ListOfSomethingComponent from "./ListOfSomethingComponent/ListOfSomethingComponent";
 import { Provider } from "react-redux";
 import store from "./app/store";
 
@@ -24,7 +25,7 @@ const router = createBrowserRouter([
       },
       {
         path: "activitiesToDo",
-        element: <div style={{ "backgroundColor": "green" }}>test</div>,
+        element: <ListOfSomethingComponent />,
       },
     ],
   },
