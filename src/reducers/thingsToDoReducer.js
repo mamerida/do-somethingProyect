@@ -1,27 +1,40 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, current } from "@reduxjs/toolkit";
 
 const initialState = {
-    thinksOnScreen: {},
-    somethingList: []
+    thinksOnScreen: null,
+    somethingList: null,
 }
 
 const addSomethingToListRedux = ({ state, action }) => {
-    console.log("hola");
+    if (!state.somethingList) {
+        state.somethingList = [action.payload]
+        return
+    }
+
+    let repiteElement = state.somethingList.some(activity => {
+        let act = current(activity)
+        return act.key == action.payload.key
+    })
+
+    if (!repiteElement) {
+        state.somethingList.push(action.payload)
+    }
+
 }
 
 const setSomethingToShowRedux = ({ state, action }) => {
-    console.log("adios")
+    state.thinksOnScreen = action.payload
 }
 
 export const DoSomethingSlice = createSlice({
-    name: 'characterList',
+    name: 'somethigs',
     initialState: initialState,
     reducers: {
         setSomethingToShow: (state, action) => {
-            addSomethingToListRedux({ state, action })
+            setSomethingToShowRedux({ state, action })
         },
         addSomethingToList: (state, action) => {
-            setSomethingToShowRedux({ state, action })
+            addSomethingToListRedux({ state, action })
         },
         clearStore: (state, action) => {
             state = initialState;
