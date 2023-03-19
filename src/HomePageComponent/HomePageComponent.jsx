@@ -26,6 +26,10 @@ const HomePageComponent = () => {
     const addActivityToFavorite = () => {
         dispatch(addSomethingToList(thinksOnScreen));
     };
+<<<<<<< HEAD
+=======
+
+>>>>>>> 885924a (list page)
     return (
         <section className={styles.HomeContainerView}>
             <section className={styles.formContainer}>
