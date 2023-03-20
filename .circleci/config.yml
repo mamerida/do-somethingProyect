@@ -27,7 +27,7 @@ jobs:
                       ./cc-test-reporter before-build
             - run:
                   name: run space test
-                  command: npm test -- --coverage
+                  command: npm run test -- --coverage
             - run:
                   name: Update CodeClimate coverage report
                   command: |

@@ -75,12 +75,20 @@ describe("Login Page Component", () => {
     })
 
     it("error message with wrong email", async () => {
-
         await user.type(screen.getByTestId("email", { name: /email/i }), "asdasd")
         await user.type(screen.getByTestId("password", { name: /password/i }), "asdasd")
         await user.click(screen.getByTestId("submit"))
         await waitFor(() => {
             expect(screen.getByText("Invalid email")).toBeInTheDocument();
+        })
+    })
+
+    it("error message with wrong password", async () => {
+        await user.type(screen.getByTestId("email", { name: /email/i }), "mamerida2013@gmail.com")
+        await user.type(screen.getByTestId("password", { name: /password/i }), "asdasd")
+        await user.click(screen.getByTestId("submit"))
+        await waitFor(() => {
+            expect(screen.getByText("Error in email or password")).toBeInTheDocument();
         })
     })
 })
