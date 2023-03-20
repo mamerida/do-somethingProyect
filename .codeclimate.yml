@@ -1,4 +1,4 @@
 exclude_patterns:
-    - "reportWebVitals.js"
-    - "index.js"
-    - "store.js"
+    - "reportWebVitals"
+    - "index"
+    - "store"
