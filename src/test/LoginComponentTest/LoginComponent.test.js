@@ -10,8 +10,6 @@ import { IsUserLoged, registerUser, createStorare } from '../../utils/localHost'
 describe("Login Page Component", () => {
     let renderInstance;
     let user;
-    const onSubmit = jest.fn();
-    const bcryptjs = require('bcryptjs')
     let newUser = {
         email: "john.dee@someemail.com",
         password: "Ma123434534!"

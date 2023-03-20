@@ -38,22 +38,31 @@ const MenuComponent = () => {
         <>
             <section className={styles.MenuBoard}>
                 <div className={styles.RouteContainer}>
-                    <Link className={styles.option__Title} to={"/"}>
+                    <Link
+                        className={styles.option__Title}
+                        to={"/"}
+                        data-testid="DoSomething"
+                    >
                         Do Something
                     </Link>
-                    <Link className={styles.option} to={"activitiesToDo"}>
+                    <Link
+                        className={styles.option}
+                        to={"activitiesToDo"}
+                        data-testid="activitiesToDo"
+                    >
                         Activities to do
                     </Link>
                 </div>
                 <ButtonComponent
                     onClick={logOutUser}
                     className={styles.ButtonToMenu}
+                    data-testid="Button"
                 >
                     LogOut
                 </ButtonComponent>
             </section>
             <section>
-                <Outlet getActivities={getActivities} />
+                <Outlet getActivities={getActivities} data-testid="Oulet" />
             </section>
         </>
     );
