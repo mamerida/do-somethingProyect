@@ -15,8 +15,6 @@ const HomePageComponent = () => {
     const { thinksOnScreen } = useSelector((state) => state.something);
     const dispatch = useDispatch();
 
-    console.log(userLoged);
-
     const setOtherActivity = () => {
         callDoSomethingAPi().then((data) => {
             dispatch(setSomethingToShow(data));
