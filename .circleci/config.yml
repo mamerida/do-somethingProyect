@@ -7,6 +7,14 @@ jobs:
             - checkout
             - run:
                   name: update npm
+                  environment:
+                      NUMBER_JUMPS: NUMBER_JUMPS
+                      REACT_APP_LOCALSTORAGE_USERS: REACT_APP_LOCALSTORAGE_USERS
+                      REACT_APP_LOCALSTORAGE_LOGED: REACT_APP_LOCALSTORAGE_LOGED
+                      REACT_APP_NO_USER_LOGED: REACT_APP_NO_USER_LOGE
+                      REACT_APP_NO_USERS_REGISTERED: REACT_APP_NO_USERS_REGISTERED
+                      REACT_APP_API_URL: REACT_APP_API_URL
+                      REACT_APP_PUBLIC_ROUTE: REACT_APP_PUBLIC_ROUTE
                   command: "sudo npm install --unsafe-perm -g npm@latest"
             - run:
                   name: install dependencies
@@ -27,7 +35,7 @@ jobs:
                       ./cc-test-reporter before-build
             - run:
                   name: run space test
-                  command: npm test -- --coverage
+                  command: npm run test -- --coverage
             - run:
                   name: Update CodeClimate coverage report
                   command: |

@@ -14,7 +14,6 @@ const LoginComponent = () => {
 
     const handleLoginSubmit = (values) => {
         let result = consultUserLogin(values);
-        console.log(result);
         if (result) {
             navigate("/");
         }
@@ -40,12 +39,14 @@ const LoginComponent = () => {
                             onSubmit={formik.handleSubmit}
                         >
                             <InputComponent
+                                data-testid="email"
                                 name="email"
                                 label="Email"
                                 requir="true"
                                 placeholder="email@email.com"
                             />
                             <InputComponent
+                                data-testid="password"
                                 name="password"
                                 label="Password"
                                 type="password"
@@ -56,14 +57,16 @@ const LoginComponent = () => {
                                     Error in email or password
                                 </ErrorMessageComponent>
                             ) : null}
-                            <ButtonComponent type="submit">
+                            <ButtonComponent type="submit" data-testid="submit">
                                 Do Something!
                             </ButtonComponent>
                         </Form>
                     )}
                 </Formik>
                 <div className={styles.linkContainer}>
-                    <Link to={"/signin"}>Don't have an account?</Link>
+                    <Link data-testid="redirect" to={"/signin"}>
+                        Don't have an account?
+                    </Link>
                 </div>
             </section>
         </section>
