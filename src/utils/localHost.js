@@ -1,7 +1,7 @@
 const bcryptjs = require('bcryptjs')
 
 
-const createStorare = () => {
+export const createStorare = () => {
     localStorage.setItem(process.env.REACT_APP_LOCALSTORAGE_USERS, process.env.REACT_APP_NO_USERS_REGISTERED)
     localStorage.setItem(process.env.REACT_APP_LOCALSTORAGE_LOGED, process.env.REACT_APP_NO_USER_LOGED)
 }
