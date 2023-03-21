@@ -12,7 +12,7 @@ To Continuous Integration I used CircleCi
 
 [![<ORG_NAME>](https://circleci.com/gh/mamerida/qouEdaProject.svg?style=svg)](https://app.circleci.com/pipelines/github/mamerida/do-somethingProyect)
 
-CodeClimate to Code Quality
+CodeClimate to Code Quality and Test Covergare
 
 [![Code Climate](https://codeclimate.com/github/codeclimate/codeclimate/badges/gpa.svg)](https://codeclimate.com/github/mamerida/do-somethingProyect)
 
