@@ -56,15 +56,18 @@ const SingInComponent = () => {
                                 label="Email"
                                 requir="true"
                                 placeholder="email@email.com"
+                                data-testid="email"
                             />
                             <InputComponent
                                 name="name"
+                                data-testid="name"
                                 label="Name"
                                 requir="true"
                                 placeholder="Thor"
                             />
                             <InputComponent
                                 name="lastName"
+                                data-testid="lastName"
                                 label="Last name"
                                 requir="true"
                                 placeholder="Odin"
@@ -72,22 +75,25 @@ const SingInComponent = () => {
                             <InputComponent
                                 name="age"
                                 label="Age"
+                                data-testid="age"
                                 requir="true"
                                 placeholder="99"
                             />
                             <InputComponent
                                 name="password"
                                 label="Password"
+                                data-testid="password"
                                 type="password"
                                 requir="true"
                             />
                             <InputComponent
                                 name="passwordRepeat"
+                                data-testid="passwordRepeat"
                                 label="Repeat your Password"
                                 type="password"
                                 requir="true"
                             />
-                            <ButtonComponent type="submit">
+                            <ButtonComponent type="submit" data-testid="submit">
                                 Create Acount
                             </ButtonComponent>
                         </Form>

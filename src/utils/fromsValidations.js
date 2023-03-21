@@ -20,7 +20,7 @@ export const schemaSingIn = Yup.object({
         .matches(
             /^([A-Za-z\u00C0-\u00D6\u00D8-\u00f6\u00f8-\u00ff\s]*)$/gi,
             'Name can only contain Latin letters.')
-        .required('Please Enter your name')
+        .required('Please Enter your last name')
         .min(4, 'The name is too short')
         .max(20, 'The name is too long'),
     age: Yup
