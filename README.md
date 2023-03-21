@@ -2,7 +2,9 @@
 
 ## About Proyect :clipboard:
 
-This proyect consist in a Login, SingUp Page and roulette where you can chose and collection diferents activities from
+This proyect consist in a Login, SingUp Page and roulette where you can chose and collection diferents activities from.
+
+The project can save differents user at the same time. 
 
 [Boded Api](http://www.boredapi.com/)
 
