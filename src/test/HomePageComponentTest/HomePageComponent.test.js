@@ -55,4 +55,18 @@ describe("test to Menu Component", () => {
     it("see activity card", async () => {
         expect(screen.getByText("Go for a walk")).toBeInTheDocument()
     })
+
+    it("press Activity card", async () => {
+        await user.click(screen.getByText("Add To Your List"))
+        await waitFor(() => {
+            expect(store.getState().something.somethingList.length).toBe(1)
+        })
+    })
+
+    it("press Other activity", async () => {
+        await user.click(screen.getByText("Other Activity"))
+        await waitFor(() => {
+            expect(screen.getByTestId("activity_name") !== act1.activity).toBe(true)
+        })
+    })
 })

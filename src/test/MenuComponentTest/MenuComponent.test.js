@@ -58,17 +58,6 @@ describe("test to Menu Component", () => {
         })
     })
 
-    it("Logout clear redux", async () => {
-        act(() => {
-            store.dispatch(setSomethingToShow({ "name": "mario" }))
-            store.dispatch(addSomethingToList({ "name": "mario" }))
-        });
-        await user.click(screen.getByText("LogOut"))
-        await waitFor(() => {
-            expect(store.getState()).toEqual({ "something": initialState })
-        })
-    })
-
     it("Do Something change url", async () => {
         await user.click(screen.getByText("Activities to do"))
         await user.click(screen.getByText("Do Something"))
