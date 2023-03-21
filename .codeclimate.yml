@@ -3,3 +3,5 @@ exclude_patterns:
     - "**/index.js"
     - "**/store.js"
     - "tests/"
+    - "**/ProtectLoginPage"
+    - "**/ProtectedRoute"
