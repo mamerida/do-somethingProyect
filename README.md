@@ -1,70 +1,64 @@
-# Getting Started with Create React App
+<h2 align="center">DO - SomeThing Proyect <br/> </h2> 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## About Proyect :clipboard:
 
-## Available Scripts
+This proyect consist in a Login, SingUp Page and roulette where you can chose and collection diferents activities from
 
-In the project directory, you can run:
+[Boded Api](http://www.boredapi.com/)
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Tecnologies ⚙️
+To Continuous Integration I used CircleCi
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+[![<ORG_NAME>](https://circleci.com/gh/mamerida/qouEdaProject.svg?style=svg)](https://app.circleci.com/pipelines/github/mamerida/do-somethingProyect)
 
-### `npm test`
+CodeClimate to Code Quality
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+[![Code Climate](https://codeclimate.com/github/codeclimate/codeclimate/badges/gpa.svg)](https://codeclimate.com/github/mamerida/do-somethingProyect)
 
-### `npm run build`
+And Jest fot test
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+[![tested with jest](https://img.shields.io/badge/tested_with-jest-99424f.svg)](https://github.com/facebook/jest)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Tools 🛠️
+<p align="left">
+<img style="margin: auto;" src="https://raw.githubusercontent.com/sachinverma53121/sachinverma53121/master/icons/js.png" alt=javascript width="50" height="50"/>
+<img style="margin: auto;" src="https://raw.githubusercontent.com/sachinverma53121/sachinverma53121/master/icons/npm.png" alt=npm width="50" height="50"/>
+<img style="margin: auto;" src="https://raw.githubusercontent.com/sachinverma53121/sachinverma53121/master/icons/node.png" alt=nodejs width="50" height="50"/>
+<img style="margin: auto;" src="https://raw.githubusercontent.com/sachinverma53121/sachinverma53121/master/icons/git.png" alt=git width="50" height="50"/>
+<img style="margin: auto;" src="https://raw.githubusercontent.com/sachinverma53121/sachinverma53121/master/icons/github.png" alt=github width="50" height="50"/>
+</p>
 
-### `npm run eject`
+## How to turn on the bot :game_die:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+1) create **.env file** in proyect root with this format:
+```
+NUMBER_JUMPS = <This Number is use to protect your password>
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+REACT_APP_LOCALSTORAGE_USERS = usersRegistered
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+REACT_APP_LOCALSTORAGE_LOGED  = userLoged
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+REACT_APP_NO_USER_LOGED = {}
 
-## Learn More
+REACT_APP_NO_USERS_REGISTERED = []
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+REACT_APP_API_URL = http://www.boredapi.com/api/activity
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+REACT_APP_PUBLIC_ROUTE = icons/
 
-### Code Splitting
+```
+2) Install/Update node package json in your favorite terminal. Execute:
+```
+npm install
+```
+3) To start bot and play only need execute 
+```
+npm start
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Test) If you want see the unit testing only execute
+```
+npm run  test
+```
