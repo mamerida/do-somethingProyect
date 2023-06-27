@@ -32,6 +32,7 @@ const MenuComponent = () => {
 
     useEffect(() => {
         getActivities();
+        console.log("test2");
     }, []);
 
     return (
