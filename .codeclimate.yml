@@ -1,7 +1,0 @@
-exclude_patterns:
-    - "**/reportWebVitals.js"
-    - "**/index.js"
-    - "**/store.js"
-    - "tests/"
-    - "**/ProtectLoginPage.jsx"
-    - "**/ProtectedRoute.jsx"
